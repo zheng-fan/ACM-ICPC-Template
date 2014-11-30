@@ -1,0 +1,22 @@
+球扇形：\\
+全面积：$T = \pi r(2h+r_0)$，$h$为球冠高，$r_0$为球冠底面半径\\
+体积：$V = \frac{2\pi r^{2}h}{3}$\\
+Pick 公式：$A = E\times 0.5+I-1$（$A$是多边形面积，$E$是边界上的整点，$I$是多边形内部的整点）\\
+\\
+海伦公式：$S = \sqrt{p(p-a)(p-b)(p-c)}$，其中$p = \frac{(a+b+c)}{2}$，$abc$为三角形的三条边长\\
+\\
+求$\binom{n}{k}$中素因子$P$的个数：\\
+\begin {enumerate}
+\item 把$n$转化为$P$进制，并记它每个位上的和为$S1$
+\item 把$n-k$，$k$做同样的处理，得到$S2$，$S3$
+\end{enumerate}
+则$\binom{n}{k}$中素因子$P$的个数：$\frac{S2+S3-S1}{P-1}$\\
+\\
+部分错排公式：\\
+$n+m$个数中$m$个数必须错排 求排列数
+\begin{lstlisting}[language=c++]
+dp[i] = n*dp[i-1]+(i-1)*(dp[i-1]+dp[i-2]);
+dp[0] = n!;
+dp[1] = n*n!;
+\end{lstlisting}
+$dp[m]$为所求解\\

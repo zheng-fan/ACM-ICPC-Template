@@ -1,0 +1,31 @@
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+bitset<n> b; & b有n位，每位都为0 \\ \hline
+bitset<n> b(u); & b是unsigned long型u的一个副本 \\ \hline
+bitset<n> b(s); & b是string对象s中含有的位串的副本 \\ \hline
+bitset<n> b(s, pos, n); & b是s中从位置pos开始的n个位的副本 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+b.any() & b中是否存在置为1的二进制位？ \\ \hline
+b.none() & b中不存在置为1的二进制位吗？ \\ \hline
+b.count() & b中置为1的二进制位的个数 \\ \hline
+b.size() & b中二进制位的个数 \\ \hline
+b[pos] & 访问b中在pos处的二进制位 \\ \hline
+b.test(pos) & b中在pos处的二进制位是否为1？ \\ \hline
+b.set() & 把b中所有二进制位都置为1 \\ \hline
+b.set(pos) & 把b中在pos处的二进制位置为1 \\ \hline
+b.reset() & 把b中所有二进制位都置为0 \\ \hline
+b.reset(pos) & 把b中在pos处的二进制位置为0 \\ \hline
+b.flip() & 把b中所有二进制位逐位取反 \\ \hline
+b.flip(pos) & 把b中在pos处的二进制位取反 \\ \hline
+b.to\_ulong() & 用b中同样的二进制位返回一个unsigned long值 \\ \hline
+os << b & 把b中的位集输出到os流 \\ \hline
+\end{tabular}
+\end{table}

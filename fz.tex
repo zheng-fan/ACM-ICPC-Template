@@ -1,0 +1,82 @@
+\documentclass[a4paper, 12pt, twoside]{article}
+
+\setlength{\columnsep}{0.8cm}
+\usepackage{xeCJK}
+\setsansfont{Consolas}
+\setmonofont{Consolas}
+%\setmainfont{Consolas}
+
+\setCJKmainfont{SimHei}
+\setCJKsansfont{SimHei}
+\setCJKmonofont{SimHei}
+
+\usepackage{listings}
+\lstset{
+	language=C++,
+	breaklines=true,
+	tabsize=4,
+	basicstyle=\sf\footnotesize,
+	numberstyle=\sf\footnotesize,
+	commentstyle=\sf\footnotesize,
+	numbers=left,
+	frame=leftline,
+	escapeinside=``,
+	extendedchars=false,
+	showstringspaces=false
+}
+
+\usepackage{geometry}
+\geometry{left=2cm,right=2cm,top=1.2cm,bottom=1.8cm,headsep=0.1cm,footnotesep=0.5cm}
+\usepackage{courier}
+
+\usepackage[
+	CJKbookmarks=true,
+	colorlinks,
+	linkcolor=black,
+	anchorcolor=black,
+	citecolor=black
+]{hyperref}
+\AtBeginDvi{\special{pdf:tounicode UTF8-UCS2}}
+
+\usepackage{fancyhdr}
+
+\usepackage{sectsty}
+\sectionfont{\large}
+\subsectionfont{\large}
+\subsubsectionfont{\large}
+
+\usepackage{amsmath}
+\usepackage{booktabs}
+
+\usepackage{indentfirst}
+\setlength{\parindent}{0em}
+\begin{document}
+\input settings.tex
+\input title.tex
+
+\clearpage
+此页为双面打印之留白页\\
+打印需注意：选择双面打印，并缩放到可打印区域！
+\clearpage
+
+\setcounter{page}{1}
+\tableofcontents\clearpage
+$ $\clearpage %目录空余页
+
+%\input ./模板/0_心得总结.tex
+\input ./模板/1_设置.tex
+\input ./模板/2_STL.tex
+\input ./模板/3_基本算法.tex
+\input ./模板/4_数据结构.tex
+\input ./模板/5_字符串.tex
+\input ./模板/6_动态规划.tex
+\input ./模板/7_数论.tex
+\input ./模板/8_图论.tex
+\input ./模板/9_数学.tex
+\input ./模板/10_博弈.tex
+\input ./模板/11_计算几何.tex
+\input ./模板/12_其他.tex
+\input ./模板/13_一些题目.tex
+\clearpage
+\input ./模板/现场赛宝典.tex
+\end{document}
