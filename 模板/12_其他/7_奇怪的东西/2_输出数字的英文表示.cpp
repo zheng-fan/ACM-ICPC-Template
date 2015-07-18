@@ -35,7 +35,7 @@ int main()
                 gao(q[i]);
                 if (i) printf(" %s",c[i]);
                 int flag=0;
-                for (int j=i-1;j>=0;j--)
+                for (int j=i-1; j>=0; j--)
                     if (q[j]) flag=1;
                 if (flag) printf(", ");
             }

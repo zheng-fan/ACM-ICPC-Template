@@ -43,7 +43,7 @@ inline int judge(string &s)
 inline void pspace(int x)
 {
     for (int i=0; i<x; i++)
-       putchar(' ');
+        putchar(' ');
 }
 inline bool ishtml(string &s)
 {

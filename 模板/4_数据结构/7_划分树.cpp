@@ -7,7 +7,7 @@ void build(int l,int r,int rt=0)
     int x=a[mid];
     sum[rt][l]=0;
     int cnt=mid-l+1;
-    for (int i=l;i<=r;i++)
+    for (int i=l; i<=r; i++)
         if (s[rt][i]<x) cnt--;
     for (int i=l; i<=r; i++)
     {

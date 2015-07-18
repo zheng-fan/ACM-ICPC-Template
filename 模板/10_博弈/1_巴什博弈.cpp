@@ -1,10 +1,9 @@
 int bash(int n, int m)
 {
-    if(n%(m+1) != 0)
-        return 1;
-    else
-        return 0;
-}int main()
+    if(n%(m+1) != 0) return 1;
+    else return 0;
+}
+int main()
 {
     int n,m;
     while(~scanf("%d%d",&n,&m))
@@ -21,8 +20,7 @@ int bash(int n, int m)
             }
             puts("");
         }
-        else
-            puts("none");
+        else puts("none");
     }
     return 0;
 }

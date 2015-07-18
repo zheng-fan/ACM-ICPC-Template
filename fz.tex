@@ -60,8 +60,11 @@
 \clearpage
 
 \setcounter{page}{1}
-\tableofcontents\clearpage
-$ $\clearpage %目录空余页
+\pagenumbering{Roman}
+\tableofcontents\cleardoublepage
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
 
 %\input ./模板/0_心得总结.tex
 \input ./模板/1_设置.tex
