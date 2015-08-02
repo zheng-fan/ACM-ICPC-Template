@@ -54,9 +54,9 @@ struct mat
     }
     mat operator *(const mat &b)
     {
-        mat t(n,m);
+        mat t(n,b.m);
         for(int i=0; i<n; i++)
-            for(int j=0; j<m; j++)
+            for(int j=0; j<b.m; j++)
             {
                 t.a[i][j]=0;
                 for(int k=0; k<m; k++)
