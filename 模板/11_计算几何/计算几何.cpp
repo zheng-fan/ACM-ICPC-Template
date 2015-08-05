@@ -166,7 +166,7 @@ struct line
     {
         return sgn(det(b - l.s, l.vec())) * sgn(det(a - l.s, l.vec())) > 0;
     }
-    //两直接的交点
+    //两直线的交点
     friend point linexline(const line l1, const line l2) //利用相似三角形对应边成比例
     {
         double s1 = det(l1.s - l2.s, l2.vec());
