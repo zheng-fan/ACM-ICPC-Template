@@ -253,7 +253,7 @@ struct polygon
         if (sgn(area()) == 0) return ans;
         for (int i = 0; i < n; i++)
             ans = ans + (p[i] + p[next(i)]) * det(p[i], p[next(i)]);
-        return ans / area() / 6 + eps; //要加eps吗？
+        return ans / area() / 6 + point(eps,eps); //要加eps吗？
     }
     //多边形边界上格点的数量
     int borderpointnum()
