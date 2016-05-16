@@ -82,9 +82,9 @@ struct mat
     }
     mat operator !()
     {
-        mat t(n,m);
-        for(int i=0; i<n; i++)
-            for(int j=0; j<m; j++)
+        mat t(m,n);
+        for(int i=0; i<m; i++)
+            for(int j=0; j<n; j++)
                 t.a[i][j]=a[j][i];
         return t;
     }
