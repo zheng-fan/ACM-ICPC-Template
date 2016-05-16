@@ -410,7 +410,7 @@ struct convex : public polygon
         if(!isinitangle) initangle();
         int i = finda(getangle(l.t - l.s));
         int j = finda(getangle(l.s - l.t));
-        if(sgn(det(l.t - l.s, p[i] - l.s) * det(l.t - l.s, p[j] - l.s) >= 0))
+        if(sgn(det(l.t - l.s, p[i] - l.s) * det(l.t - l.s, p[j] - l.s) >= 0)) //可以不写sgn，不过还是先这样吧，不改了
             return 0;
         return 1;
     }
@@ -635,7 +635,7 @@ struct circle
         while (theta < 0) theta += 2 * pi;
         while (theta > 2 * pi) theta -= 2 * pi;
         theta = min(theta, 2 * pi - theta);
-        return sgn(det(a, b)) * theta * r * r / 2.0; //此处交大板子有误
+        return sgn(det(a, b)) * theta * r * r / 2.0; //此处上海交大的板子有误，已修正
     }
     //与线段AB的交点计算面积 a->b
     double calcarea(const point &a, const point &b) const
