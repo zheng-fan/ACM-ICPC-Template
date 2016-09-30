@@ -204,6 +204,7 @@ struct line
     }
 };
 
+// ***多边形点的顺序可能会引发正负号问题***
 struct polygon
 {
 #define next(i) ((i+1)%n)
@@ -661,7 +662,7 @@ struct circle
             }
         }
     }
-    //圆与多边形交，结果可以尝试+eps
+    //圆与多边形交，结果可以尝试+eps，要注意多边形点的顺序可能会引发正负号问题
     friend double cirxpolygon(const circle &c, const polygon &a)
     {
         int n = a.p.size();
