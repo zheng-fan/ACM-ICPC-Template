@@ -21,7 +21,6 @@ void fft(int n, complex<double> *buffer, int offset, int step, complex<double> *
         ffttemp[k]=buffer[pos+offset]+epsilon[k*step]*buffer[pos+offset+step];
         ffttemp[k+m]=buffer[pos+offset]-epsilon[k*step]*buffer[pos+offset+step];
     }
-
     for(int i=0; i<n; i++)
         buffer[i*step+offset]=ffttemp[i];
 }
