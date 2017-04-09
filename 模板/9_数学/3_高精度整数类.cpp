@@ -11,9 +11,11 @@ struct integer
         delete []d;
     }
     ///将数组分配在堆上后，默认的赋值运算符只会复制指针，在析构时会出现问题，因此需要重载
+    ///但应尽量避免赋值操作，以免导致效率损失
     integer &operator =(const integer &a)
     {
         memcpy(d,a.d,(a.d[0]+1)*sizeof(int));
+        memset(d+d[0]+1,0,(NV-d[0]-1)*sizeof(int));
         return *this;
     }
     integer(int x)
