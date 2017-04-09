@@ -4,13 +4,21 @@ int radix=ra*ra*ra*ra;
 const int NV=1000;
 struct integer
 {
-    int d[NV];
-    integer()
+    int *d=NULL;
+    integer():integer(0) {}
+    ~integer()
     {
-        *this=integer(0);
+        delete []d;
+    }
+    ///将数组分配在堆上后，默认的赋值运算符只会复制指针，在析构时会出现问题，因此需要重载
+    integer &operator =(const integer &a)
+    {
+        memcpy(d,a.d,(a.d[0]+1)*sizeof(int));
+        return *this;
     }
     integer(int x)
     {
+        d=new int[NV];
         for (int i=0; i<NV; i++) d[i]=0;
         if (!x) d[0]=1;
         while(x)
@@ -21,6 +29,7 @@ struct integer
     }
     integer(long long x)
     {
+        d=new int[NV];
         for (int i=0; i<NV; i++) d[i]=0;
         if (!x) d[0]=1;
         while(x)
@@ -31,9 +40,11 @@ struct integer
     }
     integer(const char s[])
     {
+        d=new int[NV];
         int len=strlen(s),i,j,k;
         d[0]=(len-1)/4+1;
-        for (i=1; i<NV; i++) d[i]=0;
+        for (i=1; i<NV; i++)
+            d[i]=0;
         for (i=len-1; i>=0; i--)
         {
             j=(len-i-1)/4+1;
@@ -67,6 +78,7 @@ struct integer
     void output()
     {
         int k=d[0];
+        ///for int d[]
         printf("%d",d[k--]);
         while(k) printf("%04d",d[k--]);
         putchar('\n');
@@ -207,7 +219,7 @@ integer operator /(const integer &a,const integer &b)
             temp/=2;
         }
     }
-    c.d[0]=max(1,a.d[0]-b.d[0]+1);
+    c.d[0]=max(1,a.d[0]-b.d[0]+1); ///for int d[]
     while(c.d[0]>1&&c.d[c.d[0]]==0) c.d[0]--;
     return c;
 }
