@@ -23,3 +23,6 @@ inline void RD(int &ret)
     while(c=getchar(),c>='0'&&c<='9') ret=ret*10+(c-'0');
     ret*=sgn;
 }
+///设置设置I/O缓存
+setvbuf(stdin,new char[1<<20],_IOFBF,1<<20);
+setvbuf(stdout,new char[1<<20],_IOFBF,1<<20);
