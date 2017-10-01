@@ -12,7 +12,15 @@ inline void OT(int a)
     if(a>=10) OT(a/10);
     putchar(a%10+'0');
 }
-//负数
+///有前导零的OT，主要在输出前要将输出数值加上lzexp
+const int lznum=4;
+const int lzexp=pow(10,lznum)+0.5;
+inline void OT0(int a,int x=lznum-1)
+{
+    if(a>=10&&x) OT0(a/10,x-1);
+    putchar(a%10+'0');
+}
+///负数RD
 inline void RD(int &ret)
 {
     char c;
