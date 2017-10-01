@@ -1,4 +1,4 @@
-///由于使用万进制，NV可以除以4。但又由于答案长度是原来的2倍，再加上补零的最坏情况是到2倍，因此NV的大小跟数的长度相同即可。
+///由于使用万进制，NV可以除以4。但又由于答案长度是原来的2倍，再加上补到2的某次方的最坏情况是到2倍，因此NV的大小跟数的十进制长度相同即可。
 #include<complex>
 complex<long double> epsilon[NV],repsilon[NV],buffera[NV],bufferb[NV],ffttemp[NV];
 void init_epsilon(int n)
@@ -28,13 +28,16 @@ integer fftmul(const integer &a,const integer &b)
 {
     ///high bit
     int n=max(a.d[0],b.d[0]);
+    ///1
     n=2*n-1;
+    ///2
     n|=n>>1;
     n|=n>>2;
     n|=n>>4;
     n|=n>>8;
     n|=n>>16;
     n++;
+    ///似乎也可以1、2调换但1变成n=2*n
     init_epsilon(n);
     for (int i=0; i<n; i++) buffera[i]=a.d[i+1],bufferb[i]=b.d[i+1];
     fft(n,buffera,0,1,epsilon);
