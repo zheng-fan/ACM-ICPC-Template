@@ -1,5 +1,6 @@
 ///由于使用万进制，NV可以除以4。但又由于答案长度是原来的2倍，再加上补到2的某次方的最坏情况是到2倍，因此NV的大小跟数的十进制长度相同即可。
 #include<complex>
+///使用double也可以
 complex<long double> epsilon[NV],repsilon[NV],buffera[NV],bufferb[NV],ffttemp[NV];
 void init_epsilon(int n)
 {
