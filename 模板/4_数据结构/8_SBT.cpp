@@ -1,4 +1,4 @@
-///以0为起始
+///以1为起始
 const int NV=200005;
 template<typename T>
 struct SBT
