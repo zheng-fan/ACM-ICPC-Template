@@ -23,6 +23,7 @@ int query(int x)
     }
     return ans;
 }
+///要注意k超过了树状数组中元素总和的情况
 int findkth(int k)
 {
     int idx = 0;
