@@ -31,6 +31,17 @@ inline void RD(int &ret)
     while(c=getchar(),c>='0'&&c<='9') ret=ret*10+(c-'0');
     ret*=sgn;
 }
+///吃掉空格与换行的getchar
+inline char fzgetchar()
+{
+    char c;
+    while(1)
+    {
+        c=getchar();
+        if (c!=' '&&c!='\n') break;
+    }
+    return c;
+}
 ///设置设置I/O缓存
 setvbuf(stdin,new char[1<<20],_IOFBF,1<<20);
 setvbuf(stdout,new char[1<<20],_IOFBF,1<<20);
