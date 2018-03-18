@@ -425,7 +425,7 @@ convex convexhull(vector<point> &a)
     int m = 0;
     for (int i = 0; i < a.size(); i++)
     {
-        //<=0则不含边界，<0则含边界
+        //<=0则不含边界，<0则含边界。注意，这里和下面两个循环都要改。
         while(m > 1 && sgn(det(res.p[m - 1] - res.p[m - 2], a[i] - res.p[m - 2])) <= 0)
             m--;
         res.p[m++] = a[i];
@@ -433,6 +433,7 @@ convex convexhull(vector<point> &a)
     int k = m;
     for (int i = a.size() - 2; i >= 0; i--)
     {
+        //<=0则不含边界，<0则含边界。注意，这里和上面两个循环都要改。
         while(m > k && sgn(det(res.p[m - 1] - res.p[m - 2], a[i] - res.p[m - 2])) <= 0)
             m--;
         res.p[m++] = a[i];
