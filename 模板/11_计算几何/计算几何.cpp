@@ -418,27 +418,27 @@ struct convex : public polygon
 };
 convex convexhull(vector<point> &a)
 {
-    //从一个vector获取凸包
-    convex res(2 * a.size() + 5); //为何？经测试好像只需要a.size()？
+    //从一个vector获取凸包（逆时针）
+    convex res(2 * a.size() + 5); //考虑退化的情况，全部共线，最多会有n+n-2+1个点（左端点和中间点各重复计算一次）
     sort(a.begin(), a.end());
     a.erase(unique(a.begin(), a.end()), a.end());
     int m = 0;
-    for (int i = 0; i < a.size(); i++)
+    for (int i = 0; i < a.size(); i++) //求下凸包
     {
         //<=0则不含边界，<0则含边界。注意，这里和下面两个循环都要改。
-        while(m > 1 && sgn(det(res.p[m - 1] - res.p[m - 2], a[i] - res.p[m - 2])) <= 0)
+        while(m > 1 && sgn(det(res.p[m - 1] - res.p[m - 2], a[i] - res.p[m - 2])) <= 0) //所有不符合的都出栈
             m--;
         res.p[m++] = a[i];
     }
     int k = m;
-    for (int i = a.size() - 2; i >= 0; i--)
+    for (int i = a.size() - 2; i >= 0; i--) //求上凸包
     {
         //<=0则不含边界，<0则含边界。注意，这里和上面两个循环都要改。
-        while(m > k && sgn(det(res.p[m - 1] - res.p[m - 2], a[i] - res.p[m - 2])) <= 0)
+        while(m > k && sgn(det(res.p[m - 1] - res.p[m - 2], a[i] - res.p[m - 2])) <= 0) //所有不符合的都出栈
             m--;
         res.p[m++] = a[i];
     }
-    if (m > 1) m--;
+    if (m > 1) m--; //起点重复计算了
     res.p.resize(m);
     res.n = m;
     return res;
