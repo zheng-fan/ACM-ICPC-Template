@@ -23,7 +23,7 @@ inline void OT0(int a,int x=lznum-1)
 ///负数RD
 inline void RD(int &ret)
 {
-    char c;
+    char c=getchar();
     int sgn;
     while(c!='-'&&(c<'0'||c>'9')) c=getchar();
     sgn=(c=='-')?-1:1;
