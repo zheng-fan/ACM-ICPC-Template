@@ -43,8 +43,8 @@ accumulate(v.begin(),v.end(),sum);
 ///返回容器内元素的最大/最小值
 max_element(v.begin(),v.end());
 min_element(v.begin(),v.end());
-///求第n小的元素，并把它放在第n位置上
-nth_element(v.begin(),v.end());
+///重新排列容器内的元素，找到第n小的元素，并把它放在iter_of_nth的位置上，使得在它之前没有大于它的元素，在它之后没有小于它的元素（iter_of_nth隐含着n的值）
+nth_element(v.begin(),iter_of_nth,v.end());
 ///将容器内元素都赋值为key
 fill(v.begin(),v.end(),key);
 ///交换区间 [__first,__middle) [__middle,__last)
