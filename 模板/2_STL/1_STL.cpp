@@ -49,6 +49,8 @@ nth_element(v.begin(),iter_of_nth,v.end());
 fill(v.begin(),v.end(),key);
 ///交换区间 [__first,__middle) [__middle,__last)
 rotate(__first,__middle,__last);
+///打乱容器内元素的排列顺序
+random_shuffle(v.begin(),v.end());
 ///将字符串以base进制转换成long，并通过ed得到一个char *指向后面未被识别的第一个字符
 long strtol(const char *s, char **ed, int base);
 ///将字符串str1用str2中的字符分隔开。第一次调用传入str1，以后传入NULL。全部分隔完时返回NULL
