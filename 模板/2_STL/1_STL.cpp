@@ -1,3 +1,6 @@
+/*
+ * pred可以使用lambda表达式[](args){func_body}，需C++11支持
+ */
 ///欧几里得求最大公约数
 __gcd(a,b);
 ///对[0,n)建堆
@@ -34,8 +37,8 @@ lower_bound(v.begin(),v.end(),key);
 ///可以插入value，而不会破坏容器顺序的最后一个位置（插入后其和其后数后移）。指向键值>key的第一个元素
 upper_bound(v.begin(),v.end(),key);
 ///将容器内元素按pred条件分开，pred为1的在前，返回分开处end()迭代器
-partition(v.begin(),v.end(),pred);
-stable_partition(v.begin(),v.end(),pred);
+partition(v.begin(),v.end(),pred),bool pred(type a);
+stable_partition(v.begin(),v.end(),pred),bool pred(type a);
 ///求两个容器内积，返回sum+内积
 inner_product(v1.begin(),v1.end(),v2.begin(),sum);
 ///对容器内元素求和，返回sum+和
@@ -47,10 +50,22 @@ min_element(v.begin(),v.end());
 nth_element(v.begin(),iter_of_nth,v.end());
 ///将容器内元素都赋值为key
 fill(v.begin(),v.end(),key);
+///复制容器v1到v2
+copy(v1.begin(),v1.end(),v2.begin());
+///按字典序比较两个容器
+lexicographical_compare(v1.begin(),v1.end(),v2.begin(),v2.end());
+///合并两个有序容器v1、v2到v，v1与v2可以相同
+merge(v1.begin(),v1.end(),v2.begin(),v2.end(),v.begin());
+///就地合并有序容器[__first,__middle) [__middle,__last)
+inplace_merge(__first,__middle,__last);
 ///交换区间 [__first,__middle) [__middle,__last)
 rotate(__first,__middle,__last);
 ///打乱容器内元素的排列顺序
 random_shuffle(v.begin(),v.end());
+///计算前缀和，src可以等于dst：dst[0] = src[0], dst[i] = dst[i - 1] + src[i];
+partial_sum(src,src+n,dst);
+///计算差分，src可以等于dst：dst[0] = src[0], dst[i] = src[i] - src[i - 1];
+adjacent_difference(src,src+n,dst);
 ///将字符串以base进制转换成long，并通过ed得到一个char *指向后面未被识别的第一个字符
 long strtol(const char *s, char **ed, int base);
 ///将字符串str1用str2中的字符分隔开。第一次调用传入str1，以后传入NULL。全部分隔完时返回NULL
