@@ -6,7 +6,7 @@ struct point
     {
         scanf("%lf%lf",&x,&y);
     }
-} p[NV],py[NV],pytmp[NV];
+} p[NV],py[NV];
 int pyidx[NV];
 bool cmpX(const point &p1,const point &p2)
 {
