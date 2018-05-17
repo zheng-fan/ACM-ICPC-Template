@@ -6,4 +6,4 @@ pdf: fz.tex
 	xelatex fz.tex
 
 clean:
-	rm -f *.toc *.pdf
+	rm -f *.aux *.log *.out *.toc *.pdf
