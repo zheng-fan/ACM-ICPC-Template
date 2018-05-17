@@ -27,8 +27,7 @@ double ClosestPair(int l,int r) //[l, r]
     if (r-l+1==3) return min(dis(p[l],p[r]),min(dis(p[l],p[l+1]),dis(p[l+1],p[r])));
     int m=l+r>>1;
     double delta=min(ClosestPair(l,m),ClosestPair(m+1,r)); //\delta=\min(\delta_1,\delta_2)
-    merge(py+l,py+m+1,py+m+1,py+r+1,pytmp+l,cmpY); //利用归并排序的思想合并得到按y有序的序列
-    copy(pytmp+l,pytmp+r+1,py+l);
+    inplace_merge(py+l,py+m+1,py+r+1,cmpY); //利用归并排序的思想合并得到按y有序的序列
     int cnt=0;
     for (int i=l; i<=r; i++) //把所有x坐标在p[m].x的[-delta, delta]的点取出来
     {
