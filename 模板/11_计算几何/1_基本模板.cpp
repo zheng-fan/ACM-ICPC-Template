@@ -167,7 +167,7 @@ struct line
         return sgn(det(b - l.s, l.vec())) * sgn(det(a - l.s, l.vec())) > 0;
     }
     //两直线的交点
-    friend point linexline(const line l1, const line l2) //利用相似三角形对应边成比例
+    friend point linexline(const line &l1, const line &l2) //利用相似三角形对应边成比例
     {
         double s1 = det(l1.s - l2.s, l2.vec());
         double s2 = det(l1.t - l2.s, l2.vec());
@@ -229,7 +229,7 @@ struct polygon
         double sum = 0;
         for (int i = 0; i < n; i++)
             sum += det(p[i], p[next(i)]);
-        return sum / 2 + eps; //要加eps吗？
+        return sum / 2 + eps/10.0; //用sgn判断面积是否为0，所以只+eps/10.0
     }
     //判断点与多边形的位置关系，0外, 1内,2边上
     int pointin(const point &t)
@@ -455,7 +455,12 @@ struct halfplane: public line
         b = s.x - t.x;
         c = det(t, s);
     }
-    halfplane(double a, double b, double c): a(a), b(b), c(c) {}
+    halfplane(double a, double b, double c): a(a), b(b), c(c)
+    {
+        if (sgn(a)==0) s=point(0,-c/b);
+        else s=point(-c/a,0);
+        t=s+point(-b,a);
+    }
     //求点p带入直线方程的值
     double calc(const point &p) const
     {
