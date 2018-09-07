@@ -37,7 +37,7 @@ mytype Directed_MST(int root,int NV,int NE)
             if(i == root)
                 continue;
             if(fabs(In[i]-inf)<eps)
-                return -1;//除了跟以外有点没有入边,则根无法到达它
+                return -1;//除了根以外有点没有入边,则根无法到达它
         }
         //2.找环
         int cntnode = 0;
