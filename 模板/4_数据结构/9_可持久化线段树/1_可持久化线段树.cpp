@@ -34,8 +34,8 @@ int update(int o,int L,int c,int l,int r)
         return k;
     }
     int m = (l + r) >> 1;
-    if (L <= m) ln[k]=update(ln[o], L , c , lson);
-    else rn[k]=update(rn[o], L , c , rson);
+    if (L <= m) ln[k]=update(ln[o], L, c, lson);
+    else rn[k]=update(rn[o], L, c, rson);
     PushUp(k);
     return k;
 }
@@ -44,8 +44,8 @@ int query(int a,int b,int L,int l,int r)
     if (l==r) return l;
     int m = (l + r) >> 1;
     int tmp=sum[ln[b]]-sum[ln[a]];
-    if (L <= tmp) return query(ln[a], ln[b], L , lson);
-    return query(rn[a], rn[b], L-tmp , rson);
+    if (L <= tmp) return query(ln[a], ln[b], L, lson);
+    return query(rn[a], rn[b], L-tmp, rson);
 }
 int main()
 {

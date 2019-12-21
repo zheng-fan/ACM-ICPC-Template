@@ -28,8 +28,8 @@ void add(int L,int c,int l,int r,int rt=1)
         return ;
     }
     int m = (l + r) >> 1;
-    if (L <= m) add(L , c , lson);
-    else add(L , c , rson);
+    if (L <= m) add(L, c, lson);
+    else add(L, c, rson);
     PushUp(rt);
 }
 void remove(int L,int c,int l,int r,int rt=1)
@@ -41,8 +41,8 @@ void remove(int L,int c,int l,int r,int rt=1)
         return ;
     }
     int m = (l + r) >> 1;
-    if (L <= m) remove(L , c , lson);
-    else remove(L , c , rson);
+    if (L <= m) remove(L, c, lson);
+    else remove(L, c, rson);
     PushUp(rt);
 }
 pair<int,int> find(int L,int c,int l,int r,int rt=1)
@@ -50,9 +50,9 @@ pair<int,int> find(int L,int c,int l,int r,int rt=1)
     if (mx[rt]<c||r<L) return make_pair(l,-1);
     if (l == r) return make_pair(l,*stt[l].lower_bound(c));
     int m = (l + r) >> 1;
-    pair<int,int> p=find(L , c , lson);
+    pair<int,int> p=find(L, c, lson);
     if (p.second!=-1) return p;
-    else return find(L , c , rson);
+    else return find(L, c, rson);
 }
 int discrete(int data[],int n,int dis[],int index[])
 {

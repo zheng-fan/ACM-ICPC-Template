@@ -86,10 +86,10 @@ void update(int L,int R,int c,int l,int r,int rt=1)
         mn[rt] = -mn[rt];
         return ;
     }
-    PushDown(rt , r - l + 1);
+    PushDown(rt, r - l + 1);
     int m = (l + r) >> 1;
-    if (L <= m) update(L , R , c , lson);
-    if (m < R) update(L , R , c , rson);
+    if (L <= m) update(L, R, c, lson);
+    if (m < R) update(L, R, c, rson);
     PushUp(rt);
 }
 void change(int L,int c,int l,int r,int rt=1)
@@ -100,10 +100,10 @@ void change(int L,int c,int l,int r,int rt=1)
         mn[rt] = c;
         return ;
     }
-    PushDown(rt , r - l + 1);
+    PushDown(rt, r - l + 1);
     int m = (l + r) >> 1;
-    if (L <= m) change(L , c , lson);
-    else change(L , c , rson);
+    if (L <= m) change(L, c, lson);
+    else change(L, c, rson);
     PushUp(rt);
 }
 int query(int L,int R,int l,int r,int rt=1)
@@ -112,11 +112,11 @@ int query(int L,int R,int l,int r,int rt=1)
     {
         return mx[rt];
     }
-    PushDown(rt , r - l + 1);
+    PushDown(rt, r - l + 1);
     int m = (l + r) >> 1;
     int ret = -inf;
-    if (L <= m) ret = max(ret,query(L , R , lson));
-    if (m < R) ret = max(ret,query(L , R , rson));
+    if (L <= m) ret = max(ret,query(L, R, lson));
+    if (m < R) ret = max(ret,query(L, R, rson));
     return ret;
 }
 void Negate(int x,int y,int l,int r)

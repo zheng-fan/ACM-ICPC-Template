@@ -6,7 +6,7 @@ double simpson(double a,double b)
 double asr(double a,double b,double epss,double A)
 {
     double c = a+(b-a)/2;
-    double L = simpson(a,c) , R = simpson(c,b);
+    double L = simpson(a,c), R = simpson(c,b);
     if (fabs(L+R-A) <= 15*epss) return L+R+(L+R-A)/15;
     return asr(a,c,epss/2,L) + asr(c,b,epss/2,R);
 }

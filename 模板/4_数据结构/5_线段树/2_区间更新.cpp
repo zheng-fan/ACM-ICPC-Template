@@ -38,10 +38,10 @@ void update(int L,int R,int c,int l,int r,int rt=1)
         sum[rt] += c * (r - l + 1);
         return ;
     }
-    PushDown(rt , r - l + 1);
+    PushDown(rt, r - l + 1);
     int m = (l + r) >> 1;
-    if (L <= m) update(L , R , c , lson);
-    if (m < R) update(L , R , c , rson);
+    if (L <= m) update(L, R, c, lson);
+    if (m < R) update(L, R, c, rson);
     PushUp(rt);
 }
 int query(int L,int R,int l,int r,int rt=1)
@@ -50,10 +50,10 @@ int query(int L,int R,int l,int r,int rt=1)
     {
         return sum[rt];
     }
-    PushDown(rt , r - l + 1);
+    PushDown(rt, r - l + 1);
     int m = (l + r) >> 1;
     int ret = 0;
-    if (L <= m) ret += query(L , R , lson);
-    if (m < R) ret += query(L , R , rson);
+    if (L <= m) ret += query(L, R, lson);
+    if (m < R) ret += query(L, R, rson);
     return ret;
 }

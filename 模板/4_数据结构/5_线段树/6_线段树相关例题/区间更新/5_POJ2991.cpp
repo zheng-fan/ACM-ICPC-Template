@@ -51,10 +51,10 @@ void update(int L,int R,double c,int l,int r,int rt=1)
         y[rt] = sin(c)*xx+cos(c)*yy;
         return ;
     }
-    PushDown(rt , r - l + 1);
+    PushDown(rt, r - l + 1);
     int m = (l + r) >> 1;
-    if (L <= m) update(L , R , c , lson);
-    if (m < R) update(L , R , c , rson);
+    if (L <= m) update(L, R, c, lson);
+    if (m < R) update(L, R, c, rson);
     PushUp(rt);
 }
 double query(int L,int l,int r,int rt=1)
@@ -63,10 +63,10 @@ double query(int L,int l,int r,int rt=1)
     {
         return ang[rt];
     }
-    PushDown(rt , r - l + 1);
+    PushDown(rt, r - l + 1);
     int m = (l + r) >> 1;
-    if (L <= m) return query(L , lson);
-    else return query(L , rson);
+    if (L <= m) return query(L, lson);
+    else return query(L, rson);
 }
 int main()
 {

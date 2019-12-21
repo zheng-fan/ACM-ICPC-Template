@@ -42,10 +42,10 @@ void update(int L,long long c,int l,int r,int rt)
         mx[rt] += c;
         return ;
     }
-    PushDown(rt , r - l + 1);
+    PushDown(rt, r - l + 1);
     int m = (l + r) >> 1;
-    if (L <= m) update(L , c , lson);
-    else update(L , c , rson);
+    if (L <= m) update(L, c, lson);
+    else update(L, c, rson);
     PushUp(rt);
 }
 void update(int L,int R,long long c,int l,int r,int rt)
@@ -57,10 +57,10 @@ void update(int L,int R,long long c,int l,int r,int rt)
         mx[rt] *= c;
         return ;
     }
-    PushDown(rt , r - l + 1);
+    PushDown(rt, r - l + 1);
     int m = (l + r) >> 1;
-    if (L <= m) update(L , R , c , lson);
-    if (m < R) update(L , R , c , rson);
+    if (L <= m) update(L, R, c, lson);
+    if (m < R) update(L, R, c, rson);
     PushUp(rt);
 }
 long long num;
@@ -71,10 +71,10 @@ int query(long long c,int l,int r,int rt)
         num=c;
         return l;
     }
-    PushDown(rt , r - l + 1);
+    PushDown(rt, r - l + 1);
     int m = (l + r) >> 1;
-    if (sum[rt<<1]>=c) return query(c , lson);
-    else return query(c-sum[rt<<1] , rson);
+    if (sum[rt<<1]>=c) return query(c, lson);
+    else return query(c-sum[rt<<1], rson);
 }
 long long query(int L,int R,int l,int r,int rt)
 {
@@ -82,11 +82,11 @@ long long query(int L,int R,int l,int r,int rt)
     {
         return mx[rt];
     }
-    PushDown(rt , r - l + 1);
+    PushDown(rt, r - l + 1);
     int m = (l + r) >> 1;
     long long ret = 0;
-    if (L <= m) ret = max(ret,query(L , R , lson));
-    if (m < R) ret = max(ret,query(L , R , rson));
+    if (L <= m) ret = max(ret,query(L, R, lson));
+    if (m < R) ret = max(ret,query(L, R, rson));
     return ret;
 }
 int main()

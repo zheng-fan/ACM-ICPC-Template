@@ -39,10 +39,10 @@ void update(int L, int R, long long c, int l, int r, int rt = 1)
         mn[rt] = min(mn[rt], stt[rt]);
         return ;
     }
-    PushDown(rt , r - l + 1);
+    PushDown(rt, r - l + 1);
     int m = (l + r) >> 1;
-    if (L <= m) update(L , R , c , lson);
-    if (m < R) update(L , R , c , rson);
+    if (L <= m) update(L, R, c, lson);
+    if (m < R) update(L, R, c, rson);
     PushUp(rt);
 }
 ll query(int L, int l, int r, int rt = 1)
@@ -51,10 +51,10 @@ ll query(int L, int l, int r, int rt = 1)
     {
         return mn[rt];
     }
-    PushDown(rt , r - l + 1);
+    PushDown(rt, r - l + 1);
     int m = (l + r) >> 1;
-    if (L <= m) return query(L , lson);
-    else return query(L , rson);
+    if (L <= m) return query(L, lson);
+    else return query(L, rson);
 }
 ll mon[NV];
 int day[NV], n;

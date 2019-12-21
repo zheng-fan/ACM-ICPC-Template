@@ -28,8 +28,8 @@ int update(int L,int c,int l,int r,int rt=1)
     }
     int m = (l + r) >> 1;
     int ret;
-    if (L <= m) ret=update(L , c , lson);
-    else ret=update(L , c , rson);
+    if (L <= m) ret=update(L, c, lson);
+    else ret=update(L, c, rson);
     PushUp(rt);
     return ret;
 }
@@ -42,7 +42,7 @@ int query(int c,int l,int r,int rt=1)
     int m = (l + r) >> 1;
     int ret;
     if (sum[rt<<1]>=c) ret=query(c, lson);
-    else ret=query(c-sum[rt<<1] , rson);
+    else ret=query(c-sum[rt<<1], rson);
     PushUp(rt);
     return ret;
 }

@@ -66,8 +66,8 @@ void update(int L,int c,int l,int r,int rt=1)
         return ;
     }
     int m = (l + r) >> 1;
-    if (L <= m) update(L , c , lson);
-    else update(L , c , rson);
+    if (L <= m) update(L, c, lson);
+    else update(L, c, rson);
     PushUp(rt);
 }
 int query(int L,int R,int l,int r,int rt=1)
@@ -78,8 +78,8 @@ int query(int L,int R,int l,int r,int rt=1)
     }
     int m = (l + r) >> 1;
     int ret = 0;
-    if (L <= m) ret += query(L , R , lson);
-    if (m < R) ret += query(L , R , rson);
+    if (L <= m) ret += query(L, R, lson);
+    if (m < R) ret += query(L, R, rson);
     return ret;
 }
 int getsum(int x,int y,int l,int r)

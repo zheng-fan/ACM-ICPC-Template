@@ -28,7 +28,7 @@ int update(int c,int l,int r,int rt=1)
     int m = (l + r) >> 1;
     int ret;
     if (sum[rt<<1]>=c) ret=update(c, lson);
-    else ret=update(c-sum[rt<<1] , rson);
+    else ret=update(c-sum[rt<<1], rson);
     PushUp(rt);
     return ret;
 }

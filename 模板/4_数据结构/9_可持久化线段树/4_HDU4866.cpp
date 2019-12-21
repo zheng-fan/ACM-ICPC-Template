@@ -40,8 +40,8 @@ int update(int o,int L,int c,int l,int r)
         return k;
     }
     int m = (l + r) >> 1;
-    if (L <= m) ln[k]=update(ln[o], L , c , lson);
-    else rn[k]=update(rn[o], L , c , rson);
+    if (L <= m) ln[k]=update(ln[o], L, c, lson);
+    else rn[k]=update(rn[o], L, c, rson);
     PushUp(k);
     return k;
 }
@@ -49,8 +49,8 @@ long long query(int a,int L,int l,int r)
 {
     if (l==r) return (long long)data[l]*L; //注意不能是sum[a]
     int m = (l + r) >> 1;
-    if (L <= cnt[ln[a]]) return query(ln[a], L , lson);
-    return sum[ln[a]]+query(rn[a], L-cnt[ln[a]] , rson);
+    if (L <= cnt[ln[a]]) return query(ln[a], L, lson);
+    return sum[ln[a]]+query(rn[a], L-cnt[ln[a]], rson);
 }
 int inithash(int n)
 {

@@ -31,8 +31,8 @@ void update(int L,int t,int c,int l,int r,int rt=1)
         return ;
     }
     int m = (l + r) >> 1;
-    if (L <= m) update(L, t , c , lson);
-    else update(L, t , c , rson);
+    if (L <= m) update(L, t, c, lson);
+    else update(L, t, c, rson);
     PushUp(rt);
 }
 int discrete(int data[],int n,int dis[])

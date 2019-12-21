@@ -33,7 +33,7 @@ struct SBT
     }
     bool Find(T key)
     {
-        return Find(rt ,key);
+        return Find(rt,key);
     }
     void Insert(T key)
     {

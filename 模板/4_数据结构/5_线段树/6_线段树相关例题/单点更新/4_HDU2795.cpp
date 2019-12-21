@@ -28,8 +28,8 @@ void update(int c,int l,int r,int rt=1)
         return;
     }
     int m = (l + r) >> 1;
-    if (mx[rt<<1]>=c) update(c , lson);
-    else update(c , rson);
+    if (mx[rt<<1]>=c) update(c, lson);
+    else update(c, rson);
     PushUp(rt);
 }
 int main()
