@@ -10,6 +10,8 @@
 \setCJKsansfont{SimHei}
 \setCJKmonofont{SimHei}
 
+% \usepackage{textcomp}
+\usepackage{xcolor}
 \usepackage{listings}
 \lstset{
 	language=C++,
@@ -22,7 +24,11 @@
 	frame=leftline,
 	escapeinside=``,
 	extendedchars=false,
-	showstringspaces=false
+	showstringspaces=false,
+	keywordstyle={\bfseries\color{blue}},
+	commentstyle=\color[RGB]{40, 147, 40},
+	stringstyle=\color[RGB]{163, 21, 21},
+	upquote=true
 }
 
 \usepackage{geometry}
