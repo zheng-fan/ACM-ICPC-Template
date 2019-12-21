@@ -6,4 +6,5 @@ pdf: fz.tex
 	xelatex fz.tex
 
 clean:
-	rm -f *.aux *.log *.out *.toc *.pdf
+	rm -f fz.aux fz.log fz.out fz.toc fz.pdf
+	rm -f `find . -name *.orig`
