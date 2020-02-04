@@ -1,21 +1,21 @@
 # ACM/ICPC Template by fz
 
-本模板采用LaTeX编写而成，建议使用Tex Live进行编译：
+这是我在本科期间参加ACM/ICPC时整理的一些算法模板，在此之后依然进行了少量更新。
 
-* Windows用户可以在清华大学开源镜像站下载到[Tex Live安装包][2]。
-* Linux用户可以直接在软件源中安装。例如Ubuntu用户执行`sudo apt-get install xelatex`即可安装Tex Live。
+本模板采用LaTeX编写。
 
-执行`xelatex fz.tex`即可编译，Windows用户可以执行fz.bat，Linux用户可以直接make。
+# Building
 
-注意：
+建议安装Tex Live进行编译：
 
-* 在Windows下不可使用CTex套件，因为它会导致cpp文件的中文注释显示错乱。Windows下Tex Live暂未测试，因此建议在Linux下进行编译。
-* Linux下可能需要添加部分字体。
-* Makefile中使用了astyle对源代码进行格式化。
-* 由于LaTeX自身的特性，因此模板需要编译数次。目前编译两次暂未发现问题，编译一次会导致目录生成错乱。
-* 针对双面打印做了一些优化，因此建议双面打印。
+* Windows: 下载安装[Tex Live](https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/)。
+* Linux: 直接在软件源中安装。例如Debian系的用户可以`sudo apt install texlive-full`。
 
-**本模板的tex是在[mzry(李昀)模板][1]的基础上修改而成，感谢李昀！**
+执行`make`即可编译，Windows用户可以执行`fz.bat`。
 
-[1]: https://github.com/mzry1992/ACMICPCTemplate/tree/master/newTempalte
-[2]: https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/
+# Advice
+
+* 如果只需要编译后的文档，建议直接下载[Release](https://github.com/fz568573448/ACM-ICPC-Template/releases)。
+* 如需打印，建议双面打印，因为针对双面打印做了一些优化。
+* 编译时，Linux下需要添加部分字体。
+* 编译时，较新版本的Tex Live的listings包对引号的行为有些不同，可以参考[这篇文章](https://debug.fanzheng.org/post/latex-package-listings-quote.html)。
